@@ -1,3 +1,1 @@
-window.APP_CONFIG = {
-  API_URL: "https://pneusfinder-api.onrender.com"
-};
+const API_BASE = "https://pneusfinder-api-v2.onrender.com";
