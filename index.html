@@ -4,41 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pneusfinder</title>
-  <meta name="description" content="Comparatore pneumatici semplice e veloce" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <h1>Pneusfinder</h1>
-      <p>Confronta prezzi pneumatici in modo semplice.</p>
-      <form id="searchForm" class="search-box">
-        <input id="searchInput" type="text" placeholder="Es. 225/40 R18" value="225/40 R18" />
-        <button type="submit">Cerca</button>
-      </form>
-      <p class="small">Frontend statico per IONOS + API su Render + DB Neon</p>
-    </div>
-  </header>
-
   <main class="container">
-    <section>
-      <h2>Risultati</h2>
-      <div id="status" class="status">Pronto per la ricerca.</div>
-      <div id="results" class="results"></div>
-    </section>
+    <h1>Pneusfinder</h1>
+    <p>Confronta i prezzi dei pneumatici in modo semplice.</p>
 
-    <section>
-      <h2>Come pubblicarlo</h2>
-      <ol>
-        <li>Pubblica <strong>backend/</strong> su Render.</li>
-        <li>Inserisci la stringa <strong>DATABASE_URL</strong> di Neon.</li>
-        <li>Modifica <strong>assets/js/config.js</strong> con l'URL della API.</li>
-        <li>Carica il contenuto di <strong>frontend/</strong> su IONOS.</li>
-      </ol>
-    </section>
+    <form id="searchForm">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Es. 225/40 R18"
+        required
+      />
+      <button type="submit">Cerca</button>
+    </form>
+
+    <div id="status">Pronto per la ricerca</div>
+    <div id="results"></div>
   </main>
 
-  <script src="./assets/js/config.js"></script>
-  <script src="./assets/js/app.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
