@@ -23,6 +23,19 @@ app.get("/", (_req, res) => {
 
 app.use("/api", searchRoutes);
 
-app.listen(PORT, () => {
+process.on("uncaughtException", (err) => {
+  console.error("Uncaught exception:", err);
+});
+
+process.on("unhandledRejection", (reason) => {
+  console.error("Unhandled rejection:", reason);
+});
+
+const server = app.listen(PORT, "0.0.0.0", () => {
   console.log(`Pneusfinder API avviata sulla porta ${PORT}`);
+});
+
+server.on("error", (err) => {
+  console.error("Server error:", err);
+  process.exit(1);
 });
