@@ -1,45 +1,202 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pneusfinder - Confronta prezzi pneumatici online</title>
 
-<title>Pneusfinder - Confronta prezzi pneumatici online</title>
+  <meta name="description" content="Confronta i prezzi dei pneumatici online. Trova le migliori offerte su Michelin, Pirelli, Goodyear e altre marche.">
+  <meta name="keywords" content="pneumatici, gomme auto, confronto prezzi gomme, pneumatici economici, 225 40 r18">
+  <meta name="robots" content="index, follow">
 
-<meta name="description" content="Confronta i prezzi dei pneumatici online. Trova le migliori offerte su Michelin, Pirelli, Goodyear e altre marche.">
+  <meta property="og:title" content="Pneusfinder - Confronta prezzi pneumatici">
+  <meta property="og:description" content="Trova il miglior prezzo per i tuoi pneumatici confrontando i principali negozi online.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pneusfinder.it">
 
-<meta name="keywords" content="pneumatici, gomme auto, confronto prezzi gomme, pneumatici economici, 225 40 r18">
+  <link rel="canonical" href="https://pneusfinder.it">
+  <link rel="stylesheet" href="css/style.css">
 
-<meta name="robots" content="index, follow">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1a2233;
+    }
 
-<meta property="og:title" content="Pneusfinder - Confronta prezzi pneumatici">
-<meta property="og:description" content="Trova il miglior prezzo per i tuoi pneumatici confrontando i principali negozi online.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://pneusfinder.it">
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
 
-<link rel="canonical" href="https://pneusfinder.it">
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
 
-<link rel="stylesheet" href="css/style.css">
+    .hero-left {
+      flex: 1 1 520px;
+    }
 
+    .hero-right {
+      flex: 1 1 420px;
+      text-align: center;
+    }
+
+    .hero-logo {
+      max-width: 420px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      line-height: 1.05;
+      margin: 0 0 20px;
+    }
+
+    .hero p {
+      font-size: 22px;
+      line-height: 1.5;
+      margin: 0 0 24px;
+    }
+
+    .hero-mockup {
+      max-width: 480px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #searchForm {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    #searchInput {
+      flex: 1 1 280px;
+      min-width: 240px;
+      padding: 14px 16px;
+      font-size: 18px;
+      border: 1px solid #cfd7e6;
+      border-radius: 12px;
+    }
+
+    #searchForm button {
+      padding: 14px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background: #ff9800;
+      color: white;
+      cursor: pointer;
+    }
+
+    #searchForm button:hover {
+      opacity: 0.92;
+    }
+
+    #status {
+      margin: 12px 0 20px;
+      font-size: 18px;
+    }
+
+    #results {
+      display: grid;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e9f2;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #0f172a;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      background: #2563eb;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 24px 16px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .hero-logo {
+        max-width: 320px;
+      }
+
+      .hero-mockup {
+        max-width: 320px;
+      }
+    }
+  </style>
 </head>
 <body>
   <main class="container">
-    <h1>Pneusfinder</h1>
-    <p>Confronta i prezzi dei pneumatici in modo semplice.</p>
+    <section class="hero">
+      <div class="hero-left">
+        <img src="pneusfinder_logo.png" alt="Logo Pneusfinder" class="hero-logo">
 
-    <form id="searchForm">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Es. 225/40 R18"
-        required
-      />
-      <button type="submit">Cerca</button>
-    </form>
+        <h1>Trova le migliori gomme al miglior prezzo</h1>
+        <p>Confronta i prezzi dei pneumatici in modo semplice, veloce e chiaro.</p>
 
-    <div id="status">Pronto per la ricerca</div>
-    <div id="results"></div>
+        <form id="searchForm">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Es. 225/40 R18"
+            required
+          />
+          <button type="submit">Cerca</button>
+        </form>
+
+        <div id="status">Pronto per la ricerca</div>
+        <div id="results"></div>
+      </div>
+
+      <div class="hero-right">
+        <img src="mockup_app_screen.png.png" alt="Mockup app Pneusfinder" class="hero-mockup">
+      </div>
+    </section>
   </main>
 
   <script src="js/config.js"></script>
