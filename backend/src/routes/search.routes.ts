@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { searchOponeo } from "../adapters/oponeo.adapter.js";
 
 const router = Router();
 
@@ -14,7 +15,7 @@ router.get("/shops", (_req, res) => {
   });
 });
 
-router.get("/search", (req, res) => {
+router.get("/search", async (req, res) => {
   const size = String(req.query.size || "").trim();
   const season = String(req.query.season || "").trim();
   const brand = String(req.query.brand || "").trim();
@@ -26,14 +27,29 @@ router.get("/search", (req, res) => {
     });
   }
 
-  return res.json({
-    success: true,
-    query: { size, season, brand },
-    shops_used: ["Oponeo", "Pneumaticileader"],
-    count_raw_offers: 0,
-    count_products: 0,
-    results: []
-  });
+  try {
+
+    const oponeoResults = await searchOponeo(size);
+
+    return res.json({
+      success: true,
+      query: { size, season, brand },
+      shops_used: ["Oponeo"],
+      count_raw_offers: oponeoResults.length,
+      count_products: oponeoResults.length,
+      results: oponeoResults
+    });
+
+  } catch (error) {
+
+    console.error("Search error:", error);
+
+    return res.status(500).json({
+      success: false,
+      error: "Errore durante la ricerca"
+    });
+
+  }
 });
 
 export default router;
